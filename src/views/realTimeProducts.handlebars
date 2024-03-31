@@ -1,0 +1,27 @@
+<h1>Real time products</h1>
+
+<div class="lista-productos" id="listaProductos"></div>
+
+<form>
+  <label for="title">titulo</label>
+  <input type="text" id="form-title" />
+  <label for="">estado</label>
+  <select id="form-select">
+    <option value="true">Verdadero</option>
+    <option value="false">Falso</option>
+  </select>
+  <label>category</label>
+  <input type="text" id="form-category" />
+  <label>descripcion</label>
+  <input type="text" id="form-description" />
+  <label>precio</label>
+  <input type="text" id="form-price" />
+  <label>codigo</label>
+  <input type="text" id="form-code" />
+  <label>stock</label>
+  <input type="number" id="form-stock" />
+
+  <button id="submit-button">Enviar</button>
+</form>
+
+<script src="/socket.io/socket.io.js"></script>
