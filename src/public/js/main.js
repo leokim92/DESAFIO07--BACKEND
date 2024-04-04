@@ -3,10 +3,10 @@ console.log("connected");
 const socket = io();
 
 socket.on("products", (data) => {
-  const listaProductos = document.getElementById("listaProductos");
-  listaProductos.innerHTML = "";
+  const productList = document.getElementById("productList");
+  productList.innerHTML = "";
   data.forEach((products) => {
-    listaProductos.innerHTML += `
+    productList.innerHTML += `
     <div class='product-card'>
     <h3>Titulo : ${products.title}</h3>
     <p>Descripción : ${products.description}</p>
@@ -69,7 +69,7 @@ const addProduct = () => {
 
     socket.emit("addProduct", product);
   } else {
-    console.error("Algunos campos del formulario no están definidos.");
+    console.error("Some field of the form are not defined.");
   }
 };
 

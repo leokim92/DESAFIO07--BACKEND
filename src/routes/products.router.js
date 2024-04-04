@@ -4,21 +4,6 @@ const router = express.Router();
 const ProductManager = require("../controllers/ProductManager.js");
 const productManager = new ProductManager()
 
-// const products = []
-// router.get("/", async (req, res) => {
-//     try {
-//         const limit = req.query.limit;
-//         const products = await productManager.getProduct()
-//         if (limit) {
-//             res.json(products.slice(0,limit));
-//         } else {
-//             res.json(products)
-//         }
-//     } catch (error) {
-//         res.status(500).json({error: "internal server error"})
-//     }
-// })
-
 router.get("/", async (req, res) => {
     try {
         const {limit = 10, page = 1, sort, query } = req. query;
@@ -38,15 +23,15 @@ router.get("/", async (req, res) => {
             page: products.page,
             hasPrevPage: products.hasPrevPage,
             hasNextPage: products.hasNextPage,
-            prevLink: products.hasPrevPage ? `/api/products?limit=${limit}&page=${productos.prevPage}&sort=${sort}&query=${query}` : null,
-            nextLink: products.hasNextPage ? `/api/products?limit=${limit}&page=${productos.nextPage}&sort=${sort}&query=${query}` : null,
+            prevLink: products.hasPrevPage ? `/api/products?limit=${limit}&page=${products.prevPage}&sort=${sort}&query=${query}` : null,
+            nextLink: products.hasNextPage ? `/api/products?limit=${limit}&page=${products.nextPage}&sort=${sort}&query=${query}` : null,
         });
 
     } catch (error) {
-        console.error("Error al obtener productos", error);
+        console.error("Error to obtain products", error);
         res.status(500).json({
             status: 'error',
-            error: "Error interno del servidor"
+            error: "Internal server error"
         });
     }
 })
